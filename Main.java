@@ -23,82 +23,90 @@ public  class Main{
 
         System.out.println("How much money do you have?");
         double money = input.nextDouble();
-        input.nextLine(); //Skips next line so you can input information again
-        budget = money;
 
-        System.out.println("You only have " + "$" + budget + "?");
-        System.out.println("Here is what we've got today!");
-
-        //Prints out options for candy using getItem method from Candy class
-        System.out.println("A" + reeces.getItem());
-        System.out.println("B" + twix.getItem());
-        System.out.println("C" + snicker.getItem());
-        System.out.println("D" + skittles.getItem());
-        System.out.println("E" + trolli.getItem());
-
-        System.out.println("So what would you like to have?");
-        String choice = input.nextLine();
-        
-
-        //Checks for reeces
-        if(choice.equals("A") && budget == reeces.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-        } else if (choice.equals("A") && budget > reeces.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-            double change = budget - reeces.getPrice();
-            System.out.println("Please take your candy, and your $" + df.format(change) + " change");
-        } else if (choice.equals("A") && budget < reeces.getPrice()){
-            System.out.println("You're broke! Take your $" + budget + " someplace else!");
-        }
-
-
-        //Checks for twix
-        else if (choice.equals("B") && budget == twix.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-        } else if (choice.equals("B") && budget > twix.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-            double change = budget - twix.getPrice();
-            System.out.println("Please take your candy, and your $" + df.format(change) + " change");
-        } else if (choice.equals("B") && budget < twix.getPrice()){
-            System.out.println("You're broke! Take your $" + budget + " someplace else!");
-        }
-        
-        //Checks for snickers
-        else if(choice.equals("C") && budget == snicker.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-        } else if (choice.equals("C") && budget > snicker.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-            double change = budget - snicker.getPrice();
-            System.out.println("Please take your candy, and your $" + df.format(change) + " change");
-        } else if (choice.equals("C") && budget < snicker.getPrice()){
-            System.out.println("You're broke! Take your $" + budget + " someplace else!");
-        }
-
-        //Checks for skittles
-        else if(choice.equals("D") && budget == skittles.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-        } else if (choice.equals("D") && budget > skittles.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-            double change = budget - skittles.getPrice();
-            System.out.println("Please take your candy, and your $" + df.format(change) + " change");
-        } else if (choice.equals("D") && budget < skittles.getPrice()){
-            System.out.println("You're broke! Take your $" + budget + " someplace else!");
-        }
-
-        //Checks for Trolli
-        else if(choice.equals("E") && budget == trolli.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-        } else if (choice.equals("E") && budget > trolli.getPrice()){
-            System.out.println("Thanks for purchasing candy through us!");
-            double change = budget - trolli.getPrice();
-            System.out.println("Please take your candy, and your $" + df.format(change) + " change");
-        } else if (choice.equals("E") && budget < trolli.getPrice()){
-            System.out.println("You're broke! Take your $" + budget + " someplace else!");
+        if(money < 0){
+            System.out.println("Sorry, you're in debt. Come back another time!");
         } else {
-            System.out.println("If you can't decide come back another time!");
-        }
 
-       
+            //Skips next line so you can input information again
+            input.nextLine();
+            budget = money;
+
+            System.out.println("You only have " + "$" + budget + "?");
+            System.out.println("Here is what we've got today!");
+
+            //Prints out options for candy using getItem method from Candy class
+            System.out.println("A" + reeces.getItem());
+            System.out.println("B" + twix.getItem());
+            System.out.println("C" + snicker.getItem());
+            System.out.println("D" + skittles.getItem());
+            System.out.println("E" + trolli.getItem());
+
+            System.out.println("So what would you like to have?");
+            String choice = input.nextLine();
+            
+
+            //Checks for reeces
+            if(choice.equalsIgnoreCase("A") && budget == reeces.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+            } else if (choice.equalsIgnoreCase("A") && budget > reeces.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+                double change = budget - reeces.getPrice();
+                System.out.println("Please take your candy, and your $" + df.format(change) + " change");
+            } else if (choice.equalsIgnoreCase("A") && budget < reeces.getPrice()){
+                System.out.println("You're broke! Take your $" + budget + " someplace else!");
+            }
+
+
+            //Checks for twix
+            else if (choice.equalsIgnoreCase("B") && budget == twix.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+            } else if (choice.equalsIgnoreCase("B") && budget > twix.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+                double change = budget - twix.getPrice();
+                System.out.println("Please take your candy, and your $" + df.format(change) + " change");
+            } else if (choice.equalsIgnoreCase("B") && budget < twix.getPrice()){
+                System.out.println("You're broke! Take your $" + budget + " someplace else!");
+            }
+            
+            //Checks for snickers
+            else if(choice.equalsIgnoreCase("C") && budget == snicker.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+            } else if (choice.equalsIgnoreCase("C") && budget > snicker.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+                double change = budget - snicker.getPrice();
+                System.out.println("Please take your candy, and your $" + df.format(change) + " change");
+            } else if (choice.equalsIgnoreCase("C") && budget < snicker.getPrice()){
+                System.out.println("You're broke! Take your $" + budget + " someplace else!");
+            }
+
+            //Checks for skittles
+            else if(choice.equalsIgnoreCase("D") && budget == skittles.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+            } else if (choice.equalsIgnoreCase("D") && budget > skittles.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+                double change = budget - skittles.getPrice();
+                System.out.println("Please take your candy, and your $" + df.format(change) + " change");
+            } else if (choice.equalsIgnoreCase("D") && budget < skittles.getPrice()){
+                System.out.println("You're broke! Take your $" + budget + " someplace else!");
+            }
+
+            //Checks for Trolli
+            else if(choice.equalsIgnoreCase("E") && budget == trolli.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+            } else if (choice.equalsIgnoreCase("E") && budget > trolli.getPrice()){
+                System.out.println("Thanks for purchasing candy through us!");
+                double change = budget - trolli.getPrice();
+                System.out.println("Please take your candy, and your $" + df.format(change) + " change");
+            } else if (choice.equalsIgnoreCase("E") && budget < trolli.getPrice()){
+                System.out.println("You're broke! Take your $" + budget + " someplace else!");
+            } else {
+                System.out.println("If you can't decide come back another time!");
+            }
+
+
+
+        }
 
     }
 }
